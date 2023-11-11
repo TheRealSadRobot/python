@@ -1,9 +1,9 @@
 """
 Filename: television.py
 Author: Talieisn Reese
-Version: 1.0
+Version: 1.2
 Date: 11/10/2023
-Purpose: 
+Purpose: Go outside
 """
 class Television:
   __MIN_VOLUME = 0
@@ -27,22 +27,29 @@ class Television:
       else:
         self.muted = True
   def channel_up(self):
-    if self.channel == Television.__MAX_CHANNEL:
-      self.channel = Television.__MIN_CHANNEL
-    else:
-      self.channel += 1
+    if self.status == True:
+      if self.channel == Television.__MAX_CHANNEL:
+        self.channel = Television.__MIN_CHANNEL
+      else:
+        self.channel += 1
   def channel_down(self):
-    if self.channel == Television.__MIN_CHANNEL:
-      self.channel = Television.__MAX_CHANNEL
-    else:
-      self.channel -= 1
+    if self.status == True:
+      if self.channel == Television.__MIN_CHANNEL:
+        self.channel = Television.__MAX_CHANNEL
+      else:
+        self.channel -= 1
   def volume_up(self):
-    if self.volume < Television.__MAX_VOLUME:
-      self.volume += 1
-      self.muted = False
+    if self.status == True:
+      if self.volume < Television.__MAX_VOLUME:
+        self.volume += 1
+        self.muted = False
   def volume_down(self):
-    if self.volume > Television.__MIN_VOLUME:
-      self.volume -= 1
-      self.muted = False
+    if self.status == True:
+      if self.volume > Television.__MIN_VOLUME:
+        self.volume -= 1
+        self.muted = False
   def __str__(self):
-    return f"Power—{self.status}, Channel—{self.status}, Volume—{self.status}"
+    if self.muted == False:
+      return f"Power = {self.status}, Channel = {self.channel}, Volume = {self.volume}"
+    else:
+      return f"Power = {self.status}, Channel = {self.channel}, Volume = {0}"
