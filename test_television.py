@@ -10,16 +10,16 @@ from television import Television
 
 class TestCase:
     tv = Television()
-    def test_Init(self):
+    def test_Init(self)-> None:
         assert "Power = False" in TestCase.tv.__str__()
         assert "Volume = 0" in TestCase.tv.__str__()
         assert "Channel = 0" in TestCase.tv.__str__()
-    def test_Power(self):
+    def test_Power(self) -> None:
         TestCase.tv.power()
         assert "Power = True" in TestCase.tv.__str__()
         TestCase.tv.power()
         assert "Power = False" in TestCase.tv.__str__()
-    def test_Mute(self):
+    def test_Mute(self)-> None:
         TestCase.tv.power()
         TestCase.tv.volume_up()
         TestCase.tv.mute()
@@ -36,7 +36,7 @@ class TestCase:
         TestCase.tv.power()
         TestCase.tv.volume_down()
         TestCase.tv.power()
-    def test_ChanUp(self):
+    def test_ChanUp(self)-> None:
         TestCase.tv.channel_up()
         assert "Channel = 0" in TestCase.tv.__str__()
         TestCase.tv.power()
@@ -47,7 +47,7 @@ class TestCase:
         TestCase.tv.channel_up()
         assert "Channel = 0" in TestCase.tv.__str__()
         TestCase.tv.power()
-    def test_ChanDown(self):
+    def test_ChanDown(self)-> None:
         TestCase.tv.channel_down()
         assert "Channel = 0" in TestCase.tv.__str__()
         TestCase.tv.power()
@@ -55,7 +55,7 @@ class TestCase:
         assert "Channel = 3" in TestCase.tv.__str__()
         TestCase.tv.channel_up()
         TestCase.tv.power()
-    def test_VolUp(self):
+    def test_VolUp(self)-> None:
         TestCase.tv.volume_up()
         assert "Volume = 0" in TestCase.tv.__str__()
         TestCase.tv.power()
@@ -69,7 +69,7 @@ class TestCase:
         TestCase.tv.volume_down()
         TestCase.tv.volume_down()
         TestCase.tv.power()
-    def test_VolDown(self):
+    def test_VolDown(self)-> None:
         TestCase.tv.volume_down()
         assert "Volume = 0" in TestCase.tv.__str__()
         TestCase.tv.power()
